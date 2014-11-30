@@ -7,14 +7,15 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_IU_User
+alter PROCEDURE SP_IU_User
 	-- Add the parameters for the stored procedure here
-	@Id bigint = 0,
+	@Id bigint=null output,
 	@FirstName varchar(40),
 	@LastName varchar(40),
 	@Celphone varchar(30)=null,
 	@Email varchar(100)=null,
 	@UserTypeId bigint,
+	@IdCompany bigint,
 	--address params
 	@Street varchar(50)=null,
 	@Number varchar(30)=null,
@@ -23,40 +24,54 @@ CREATE PROCEDURE SP_IU_User
 	@State varchar(30)=null,
 	@Country varchar(40)=null
 AS
-BEGIN
 BEGIN TRAN
 	BEGIN TRY
-		IF(@Id = 0 OR @Id=NULL)
+		IF(@Id = 0 OR @Id is null)
 			BEGIN
-				INSERT INTO dbo.Users
-				(FirstName,LastName,Celphone,Email,Active,UserTypeId)
-				VALUES
-				(@FirstName,@LastName,@Celphone,@Email,1,@UserTypeId)
+				if((select active from company where id=@IdCompany)=1)
+					BEGIN
+						INSERT INTO dbo.Users
+						(FirstName,LastName,Celphone,Email,Active,UserTypeId,IdCompany)
+						VALUES
+						(@FirstName,@LastName,@Celphone,@Email,1,@UserTypeId,@IdCompany)
 				
-				DECLARE @IDUSUARIO BIGINT=(SELECT SCOPE_IDENTITY())			
-				INSERT INTO dbo.UserAddress(Street,Number,Cp,Neighborhood,State,Country,IdUser)
-				VALUES
-				(@Street,@Number,@Cp,@Neighborhood,@State,@Country,@IDUSUARIO)
-				
-				SELECT @IDUSUARIO
+						SET @Id= (SELECT SCOPE_IDENTITY())
+						INSERT INTO dbo.UserAddress(Street,Number,Cp,Neighborhood,State,Country,IdUser)
+						VALUES
+						(@Street,@Number,@Cp,@Neighborhood,@State,@Country,@Id)
+					END
+				ELSE
+					BEGIN
+					DECLARE @ERR_MESSAGE NVARCHAR(255);
+					SET @ERR_MESSAGE='LA EMPRESA EN DONDE SE ESTA DANDO DE ALTA EL USUARIO ESTA DADA DE BAJA';
+						RAISERROR (@ERR_MESSAGE, -- Message text.
+						   16, -- Severity,
+						   1 -- State,
+						   ); -- Second argument.
+					END
 			END
 		ELSE
 			BEGIN
-				UPDATE dbo.Users SET
-				FirstName=@FirstName,
-				LastName=@LastName,
-				Celphone=@Celphone,
-				Email=@Email
-				WHERE Id=@Id
+			if((SELECT COUNT(*) FROM USERS WHERE ID=@Id)>0)
+				BEGIN
+					UPDATE dbo.Users SET
+					FirstName=@FirstName,
+					LastName=@LastName,
+					Celphone=@Celphone,
+					Email=@Email
+					WHERE Id=@Id
 				
-				UPDATE dbo.UserAddress SET
-				Street=@Street,
-				Number=@Number,
-				Cp=@Cp,
-				Neighborhood=@Neighborhood,
-				State=@State,
-				Country=@Country
-				WHERE IdUser=@Id
+					UPDATE dbo.UserAddress SET
+					Street=@Street,
+					Number=@Number,
+					Cp=@Cp,
+					Neighborhood=@Neighborhood,
+					State=@State,
+					Country=@Country
+					WHERE IdUser=@Id
+				
+					SET @Id=0
+				END
 			END
 	END TRY
 	BEGIN CATCH
@@ -82,10 +97,9 @@ BEGIN TRAN
                              ', estado ' + CAST(@E_STATE AS VARCHAR(10)) +
                              ', severidad ' + CAST(@E_SEVERITY AS VARCHAR(10)) +
                              ', y el mensaje de error es: ' + @E_MESSAGE
-              select @mensaje
-              RAISERROR(@Mensaje ,16 ,1)
+              select @E_MESSAGE
+              RAISERROR(@E_MESSAGE ,16 ,1)
               RETURN
       END CATCH
       COMMIT TRAN
-END
 GO

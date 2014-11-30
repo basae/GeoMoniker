@@ -7,9 +7,9 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_IU_Route
+alter PROCEDURE SP_IU_Route
 	-- Add the parameters for the stored procedure here
-	@Id bigint = 0,
+	@Id bigint = NULL OUTPUT,
 	@Name varchar(40),
 	@UserInsert bigint,
 	@IdCompany bigint
@@ -17,13 +17,29 @@ CREATE PROCEDURE SP_IU_Route
 AS
 BEGIN
 BEGIN TRY
-	IF(@Id = 0 OR @Id=NULL)
+	IF(@Id = 0 OR @Id IS NULL)
 		BEGIN
-			INSERT INTO dbo.Route
-			(Name,InsertDate,UserInsert)
-			VALUES
-			(@Name,GETDATE(),@UserInsert)		
-			SELECT SCOPE_IDENTITY()
+		IF((SELECT COUNT(*) FROM COMPANY WHERE id=@IdCompany)=0 OR (SELECT ACTIVE FROM COMPANY WHERE id=@IdCompany)=0)
+		BEGIN
+			RAISERROR ('LA EMPRESA INGRESADA NO EXISTE O FUE DADA DE BAJA',
+						   16,
+						   1
+						   );
+		END
+
+		IF((SELECT COUNT(*) FROM USERS WHERE ID=@UserInsert)=0 OR(SELECT ACTIVE FROM USERS WHERE id=@UserInsert)=0)
+		BEGIN
+			RAISERROR ('EL USUARIO NO EXISTE O ESTA INACTIVO',
+						   16,
+						   1
+						   );
+		END
+
+		INSERT INTO dbo.Route
+		(Name,InsertDate,UserInsert,IdCompany)
+		VALUES
+		(@Name,GETDATE(),@UserInsert,@IdCompany)		
+		SET @Id=(SELECT SCOPE_IDENTITY())
 		END
 	ELSE
 		BEGIN
@@ -32,6 +48,7 @@ BEGIN TRY
 			UpdateDate=GETDATE(),
 			UserUpdate=@UserInsert
 			WHERE Id=@Id
+			SET @Id=0;
 		END
 END TRY
 BEGIN CATCH
@@ -57,8 +74,8 @@ IF @@TRANCOUNT > 0 ROLLBACK TRAN
                          ', estado ' + CAST(@E_STATE AS VARCHAR(10)) +
                          ', severidad ' + CAST(@E_SEVERITY AS VARCHAR(10)) +
                          ', y el mensaje de error es: ' + @E_MESSAGE
-          select @mensaje
-          RAISERROR(@Mensaje ,16 ,1)
+          select @E_MESSAGE
+          RAISERROR(@E_MESSAGE ,16 ,1)
           RETURN
   END CATCH
 END

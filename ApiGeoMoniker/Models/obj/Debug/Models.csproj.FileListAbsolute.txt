@@ -1,0 +1,4 @@
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Models\bin\Debug\Models.dll
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Models\bin\Debug\Models.pdb
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Models\obj\Debug\Models.dll
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Models\obj\Debug\Models.pdb

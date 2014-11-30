@@ -9,7 +9,7 @@ GO
 -- =============================================
 CREATE PROCEDURE SP_IU_Point
 	-- Add the parameters for the stored procedure here
-	@Id BIGINT = 0,
+	@Id BIGINT = NULL,
 	@Description VARCHAR(100),
 	@Lat DECIMAL,
 	@Lng DECIMAL,
@@ -18,7 +18,7 @@ CREATE PROCEDURE SP_IU_Point
 AS
 BEGIN
 BEGIN TRY
-	IF(@Id = 0 OR @Id=NULL)
+	IF(@Id = 0 OR @Id IS NULL)
 		BEGIN
 			INSERT INTO dbo.Point
 			(Description,Lat,Lng,IdRute)
@@ -33,6 +33,7 @@ BEGIN TRY
 			Lat=@Lat,
 			Lng=@Lng
 			WHERE Id=@Id
+			select 1;
 		END
 END TRY
 BEGIN CATCH

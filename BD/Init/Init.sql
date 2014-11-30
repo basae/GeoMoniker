@@ -6,9 +6,10 @@ go
 create table Company
 (
 Id bigint primary key identity,
-Name varchar(70),
+Name varchar(MAX),
 InsertDate datetime,
-UpdateDate datetime
+UpdateDate datetime,
+Active bit
 )
 go
 
@@ -41,7 +42,10 @@ LastName varchar(40),
 Celphone varchar(30),
 Email varchar(100),
 UserTypeId bigint,
-foreign key(UserTypeId) references UserType
+IdCompany bigint,
+Active bit,
+foreign key(UserTypeId) references UserType,
+foreign key(IdCompany) references Company
 )
 go
 
@@ -103,11 +107,13 @@ create table ArriveControl
 Id bigint identity,
 IdRoute bigint not null,
 IdPoint bigint not null,
+IdOneness bigint not null,
 NoTurn int not null,
-ActualArrival time,
-AwaitedArrival time,
-primary key (IdRoute,IdPoint,NoTurn),
+ActualArrival datetime,
+AwaitedArrival datetime,
+primary key (IdRoute,IdPoint,NoTurn,IdOneness),
 foreign key (IdRoute) references Route ,
-foreign key (IdPoint) references Point 
+foreign key (IdPoint) references Point,
+foreign key (IdOneness) references Oneness
 
 )

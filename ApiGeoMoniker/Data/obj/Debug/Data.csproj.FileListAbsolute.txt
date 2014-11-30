@@ -1,0 +1,7 @@
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\bin\Debug\Data.dll
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\bin\Debug\Data.pdb
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\bin\Debug\Models.dll
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\bin\Debug\Models.pdb
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\obj\Debug\Data.dll
+C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Data\obj\Debug\Data.pdb

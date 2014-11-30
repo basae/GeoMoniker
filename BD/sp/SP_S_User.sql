@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_S_User
+ALTER PROCEDURE SP_S_User
 	-- Add the parameters for the stored procedure here
 AS
 BEGIN
@@ -18,6 +18,7 @@ BEGIN
 	CELPHONE,
 	EMAIL,
 	USERTYPEID,
+	IDCOMPANY,
 	STREET,
 	NUMBER,
 	CP,

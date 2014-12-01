@@ -9,17 +9,19 @@ namespace ApiGeoMoniker
     {
         public static void Register(HttpConfiguration config)
         {
+
+            config.Routes.MapHttpRoute(
+                name: "Point",
+                routeTemplate: "api/route/{IdRoute}/point/{id}",
+                defaults: new { IdRoute = RouteParameter.Optional, controller = "Point", id = RouteParameter.Optional }
+            );
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            config.Routes.MapHttpRoute(
-                name: "Route",
-                routeTemplate: "api/{controller}/Company/{IdCompany}",
-                defaults: new { IdCompany = RouteParameter.Optional }
-            );
         }
     }
 }

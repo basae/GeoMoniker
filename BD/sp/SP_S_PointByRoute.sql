@@ -7,39 +7,23 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_IU_Point
+CREATE PROCEDURE SP_S_PointByRoute
 	-- Add the parameters for the stored procedure here
-	@Id BIGINT = NULL OUTPUT,
-	@Description VARCHAR(100),
-	@Lat DECIMAL,
-	@Lng DECIMAL,
 	@IdRute BIGINT
 	
 AS
 BEGIN
 BEGIN TRY
-	IF(@Id = 0 OR @Id IS NULL)
-		BEGIN
-			IF((SELECT COUNT(*) FROM ROUTE WHERE ID=@IdRute)=0)
-			BEGIN
-				RAISERROR('LA RUTA NO EXISTE' ,16 ,1)
-			END
+	IF((SELECT COUNT(*) FROM ROUTE WHERE ID=@IdRute)=0)
+	BEGIN
+		RAISERROR('LA RUTA NO EXISTE' ,16 ,1)
+	END
 
-			INSERT INTO dbo.Point
-			(Description,Lat,Lng,IdRute)
-			VALUES
-			(@Description,@Lat,@Lng,@IdRute)		
-			SET @Id=(SELECT SCOPE_IDENTITY())
-		END
-	ELSE
-		BEGIN
-			UPDATE dbo.Point SET
-			Description=@Description,
-			Lat=@Lat,
-			Lng=@Lng
-			WHERE Id=@Id
-			SET @Id=1;
-		END
+	SELECT ID,DESCRIPTION,LAT,LNG
+	FROM
+	POINT
+	WHERE IDRUTE=@IdRute
+
 END TRY
 BEGIN CATCH
 IF @@TRANCOUNT > 0 ROLLBACK TRAN

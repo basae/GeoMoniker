@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompanyBusinessLayer.cs" />
+    <Compile Include="PointBusinessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteBusinessLayer.cs" />
     <Compile Include="UserBusinessLayer.cs" />

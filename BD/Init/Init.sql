@@ -96,8 +96,8 @@ create table Point
 (
 Id bigint primary key identity,
 Description varchar(100),
-Lat decimal not null,
-Lng decimal not null,
+Lat decimal(10,6) not null,
+Lng decimal(10,6) not null,
 IdRute bigint,
 foreign key(IdRute) references Route
 )

@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-alter PROCEDURE SP_IU_Route
+CREATE PROCEDURE SP_IU_Route
 	-- Add the parameters for the stored procedure here
 	@Id bigint = NULL OUTPUT,
 	@Name varchar(40),

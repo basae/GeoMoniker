@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_UserById
+CREATE PROCEDURE SP_S_UserById
 	-- Add the parameters for the stored procedure here
 	@Id bigint
 AS

@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-alter PROCEDURE SP_IU_Company
+CREATE PROCEDURE SP_IU_Company
 	-- Add the parameters for the stored procedure here
 	@Id bigint=NULL output,
 	@Name varchar(MAX)

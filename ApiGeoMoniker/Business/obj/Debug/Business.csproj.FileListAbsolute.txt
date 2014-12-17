@@ -7,3 +7,12 @@ C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Business\bin\
 C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
 C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Business\obj\Debug\Business.dll
 C:\Users\Edrei\Documents\Visual Studio 2012\Projects\ApiGeoMoniker\Business\obj\Debug\Business.pdb
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\bin\Debug\Business.dll
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\bin\Debug\Business.pdb
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\bin\Debug\Data.dll
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\bin\Debug\Models.dll
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\bin\Debug\Data.pdb
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\bin\Debug\Models.pdb
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\obj\Debug\Business.csprojResolveAssemblyReference.cache
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\obj\Debug\Business.dll
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Business\obj\Debug\Business.pdb

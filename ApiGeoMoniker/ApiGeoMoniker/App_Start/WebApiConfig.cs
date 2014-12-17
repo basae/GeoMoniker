@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
+
 namespace ApiGeoMoniker
 {
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)
         {
-
             config.Routes.MapHttpRoute(
                 name: "Point",
                 routeTemplate: "api/route/{IdRoute}/point/{id}",

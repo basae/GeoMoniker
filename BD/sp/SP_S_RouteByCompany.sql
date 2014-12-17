@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_RouteByCompany
+CREATE PROCEDURE SP_S_RouteByCompany
 	-- Add the parameters for the stored procedure here
 	@IdCompany BIGINT
 AS

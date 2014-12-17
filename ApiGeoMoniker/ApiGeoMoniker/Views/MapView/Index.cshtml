@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+@Scripts.Render("~/bundles/jquery")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript">
+        var urlApi='@Request.Url.Authority'
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLJo0DLMNjD8pAieAlHOOlugYaZo-7o9M&sensor=false"></script>
+    
+    <link rel="stylesheet" href="~/Content/map.css" type="text/css" />
+</head>
+<body>
+    <div id="map">
+        
+    </div>
+</body>
+</html>

@@ -2,6 +2,7 @@
     Layout = null;
 }
 @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
 <!DOCTYPE html>
 
 <html>
@@ -14,10 +15,24 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLJo0DLMNjD8pAieAlHOOlugYaZo-7o9M&sensor=false"></script>
     
     <link rel="stylesheet" href="~/Content/map.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/themes/ui-darkness/jquery-ui-1.10.4.custom.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Bootstrap.FontAwsome.css" type="text/css" />
+    
 </head>
 <body>
     <div id="map">
         
+    </div>
+
+    <div id="AddTerminal">
+        <form id="saveForm">
+            <label>Nombre:</label>
+            <input type="text" name="Description" id="Description" placeholder="Nombre de la Terminal" required />
+            <label>Latitud:</label>
+            <input type="text" name="Lat" id="Lat" required />
+            <label>Longitud:</label>
+            <input type="text" name="Lng" id="Lng" required  />
+        </form>
     </div>
 </body>
 </html>

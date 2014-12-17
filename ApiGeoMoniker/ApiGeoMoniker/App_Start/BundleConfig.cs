@@ -39,6 +39,7 @@ namespace ApiGeoMoniker
                         "~/Content/themes/base/jquery.ui.tabs.css",
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
+                        "~/Content/themes/ui-darkness/jquery-ui.ui-darkness.min.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
         }
     }

@@ -1,6 +1,8 @@
 ﻿var MapControl;
+var LastMarker;//=new google.maps.Marker();
+var Terminals = [];
 $(function () {
-
+    LastMarker = new google.maps.Marker();
     $("#AddTerminal").dialog(
         {
             autoOpen: false,
@@ -11,6 +13,7 @@ $(function () {
                         $("#saveForm").submit();
                     },
                     Cancel: function () {
+                        $("#saveForm > input[type=text]").attr("value", "");
                         $(this).dialog("close");
                     }
                 },
@@ -21,23 +24,58 @@ $(function () {
                 },
             height: 340,
             width: 250,
-            title:"Alta de Terminal"
+            title: "Alta de Terminal"
+        });
+
+    $("#confirmupdate").dialog(
+        {
+            autoOpen: false,
+            buttons:
+                {
+                    "Aceptar": function () {
+                        var stringJson = JSON.stringify({ Id: LastMarker.attr("id"), Description: LastMarker.attr("title"), Lat: LastMarker[0].getPosition().lat(), Lng: LastMarker[0].getPosition().lng() })
+                        var ejemplo = stringJson;
+                        $.ajax({
+                            url: "http://" + urlApi + "/api/route/1/point",
+                            type: "PUT",
+                            dataType: "json",
+                            data: stringJson,
+                            contentType: "application/json",
+                            success: function (response) {
+                                $("#confirmupdate").dialog("close");
+                            },
+                            error: function (a, b, c) {
+                                var errorResponse = $.parseJSON(a.responseText);
+                                alert(c + "\nMensaje:" + errorResponse.Message);
+                            }
+                        });
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                },
+            show:
+                {
+                    effect: "blind",
+                    duration: 1000
+                },
+            height: 340,
+            width: 250,
+            title: "Cambiar Ubicación"
         });
     
     $("#saveForm").on("submit",function(event)
     {
-        var test = $("#saveForm").serializeArray();
-
-        var test2 = TransformObject(test);
         $.ajax({
             url: "http://" + urlApi + "/api/route/1/point",
             type: "POST",
             dataType: "json",
-            data: test2,
+            data: TransformObject($("#saveForm").serializeArray()),
             contentType: "application/json",
             success: function (response) {
                 $("#AddTerminal").dialog("close");
                 $("#saveForm > input[type=text]").attr("value", "");
+                CleanMap(1);
             },
             error: function (a, b, c) {
                 var errorResponse = $.parseJSON(a.responseText);
@@ -45,7 +83,7 @@ $(function () {
             }
         });
 
-        $(this).preventDefault();
+        event.preventDefault();
     });
 
     //$("#AddTerminal").dialog("hide");
@@ -60,6 +98,14 @@ $(function () {
 
     
 });
+
+function CleanMap(route) {
+    $.each(Terminals, function (index, terminal) {
+        terminal.setMap();
+    });
+    Terminals = [];
+    MapControl.LoadPoints(route);
+}
 
 function TransformObject(parameters) {
     var result = "{";
@@ -87,6 +133,7 @@ function queryParameters() {
 
 var MapObj = function () {
     var map;
+    var LastPosition;
 
     var init = function (posx, posy, zoom) {
         var mapOptions = {
@@ -100,6 +147,7 @@ var MapObj = function () {
         //addMarker(posx, posy,'');
 
         google.maps.event.addListener(map, "rightclick", function (position) {
+            $("#AddTerminal").dialog({tipo:1});
             $("#AddTerminal").dialog("open");
             $("#Lat").val(position.latLng.lat());
             $("#Lng").val(position.latLng.lng());
@@ -113,8 +161,18 @@ var MapObj = function () {
                 position:new google.maps.LatLng(posx,posy),
                 map:map,
                 title: titulo,
-                id:id
+                id:id,
+                draggable:true,
+                icon:{
+                    path:google.maps.SymbolPath.CIRCLE,
+                    scale:4,
+                    fillColor:'blue',
+                    fillOpacity:0.6,
+                    strokeColor:'red',
+                    strokeWeigth:0
+                }
             });
+
         var infowindow = new google.maps.InfoWindow();
 
         google.maps.event.addListener(marker, "click", function (LatLng) {
@@ -127,6 +185,18 @@ var MapObj = function () {
             infowindow.setContent(content);
             infowindow.open(map,marker[0]);
         });
+
+        google.maps.event.addListener(marker, "dragend", function (LatLng) {
+            LastMarker = $(this);
+            confirmUpdateUbication();
+            
+        });
+
+        google.maps.event.addListener(marker, "dragstart", function (LatLng) {
+            LastPosition = LatLng.latLng;
+        });
+
+        Terminals.push(marker);
     };
 
     var loadTerminal = function (idRoute) {
@@ -155,4 +225,10 @@ var MapObj = function () {
         Init: init,
         LoadPoints:loadTerminal
     }
+}
+
+function confirmUpdateUbication() {
+    $("#confirmupdate").dialog({ title: "Moviendo Ubicación de Terminal" });
+    $("#confirmupdate > p").text("¿Deseas Mover la Ubicación de " + LastMarker.attr("title") + "?");
+    $("#confirmupdate").dialog("open");
 }

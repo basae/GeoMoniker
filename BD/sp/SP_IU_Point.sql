@@ -11,8 +11,8 @@ ALTER PROCEDURE SP_IU_Point
 	-- Add the parameters for the stored procedure here
 	@Id BIGINT = NULL OUTPUT,
 	@Description VARCHAR(100),
-	@Lat DECIMAL(10,2),
-	@Lng DECIMAL(10,2),
+	@Lat DECIMAL(10,6),
+	@Lng DECIMAL(10,6),
 	@IdRute BIGINT
 	
 AS

@@ -7,23 +7,22 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_PointByRoute
+ALTER PROCEDURE SP_S_PointByID
 	-- Add the parameters for the stored procedure here
-	@IdRute BIGINT
+	@IdPoint BIGINT
 	
 AS
 BEGIN
 BEGIN TRY
-	IF((SELECT COUNT(*) FROM ROUTE WHERE ID=@IdRute)=0)
+	IF((SELECT COUNT(*) FROM POINT WHERE ID=@IdPoint)=0)
 	BEGIN
-		RAISERROR('LA RUTA NO EXISTE' ,16 ,1)
+		RAISERROR('LA TERMINAL NO EXISTE' ,16 ,1)
 	END
 
 	SELECT ID,DESCRIPTION,LAT,LNG,ISSTART,ISEND,ORDERROUTE
 	FROM
 	POINT
-	WHERE IDRUTE=@IdRute
-	ORDER BY ORDERROUTE
+	WHERE ID=@IdPoint
 
 END TRY
 BEGIN CATCH

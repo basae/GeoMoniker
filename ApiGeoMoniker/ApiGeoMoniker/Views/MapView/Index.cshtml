@@ -26,12 +26,21 @@
 
     <div id="AddTerminal">
         <form id="saveForm">
+            <input type="text" name="Id" id="Id" value="0" hidden/>
             <label>Nombre:</label>
             <input type="text" name="Description" id="Description" placeholder="Nombre de la Terminal" required />
             <label>Latitud:</label>
             <input type="text" name="Lat" id="Lat" required />
             <label>Longitud:</label>
             <input type="text" name="Lng" id="Lng" required  />
+            <label>Orden de Terminal</label>
+            <input type="number" name="Order" id="Order" required  />
+            <fieldset>
+                <label>Es Inicio de Ruta</label>
+            <input type="checkbox" name="IsStart" id="IsStart" required />
+                <label>Es Final de Ruta</label>
+            <input type="checkbox" name="IsEnd" id="IsEnd" required  />
+            </fieldset>
         </form>
     </div>
 

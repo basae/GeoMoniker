@@ -28,6 +28,9 @@ namespace Data
                             cmd.Parameters.AddWithValue("@Lat", _Point.Lat);
                             cmd.Parameters.AddWithValue("@Lng", _Point.Lng);
                             cmd.Parameters.AddWithValue("@IdRute", IdRoute);
+                            cmd.Parameters.AddWithValue("@IsStart", _Point.IsStart);
+                            cmd.Parameters.AddWithValue("@IsEnd", _Point.isEnd);
+                            cmd.Parameters.AddWithValue("@OrderRoute", _Point.Order);
                             cmd.ExecuteNonQuery();
 
                             if (Convert.ToInt64(cmd.Parameters["@Id"].Value) != _Point.Id)
@@ -65,14 +68,17 @@ namespace Data
                         adapter.Fill(result);
                         if (result.Rows.Count>0)
                         {
-                            Response.List = from row in result.Rows.Cast<DataRow>()
+                            Response.List = (from row in result.Rows.Cast<DataRow>()
                                             select new Point
                                             {
                                                 Id=(long)row["Id"],
                                                 Description=(string)row["Description"],
                                                 Lat=(decimal)row["Lat"],
-                                                Lng=(decimal)row["Lng"]
-                                            };
+                                                Lng=(decimal)row["Lng"],
+                                                IsStart=(bool)row["IsStart"],
+                                                isEnd=(bool)row["IsEnd"],
+                                                Order = (row["OrderRoute"] == DBNull.Value) ? 0 : (int)row["OrderRoute"]
+                                            }).OrderBy(x => x.Order);
                         }
                         else
                             throw new Exception("No Se encontro la Ruta en la BD");
@@ -88,5 +94,50 @@ namespace Data
             return Response;
 
         }
+
+        public ServiceResponse<Point> SelectById(long IdPoint)
+        {
+            ServiceResponse<Point> Response = new ServiceResponse<Point>();
+            try
+            {
+                using (Conn)
+                {
+                    Conn.Open();
+                    using (SqlCommand cmd = new SqlCommand("SP_S_PointByID", Conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IdPoint", IdPoint);
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable result = new DataTable();
+                        adapter.Fill(result);
+                        if (result.Rows.Count>0)
+                        {
+                            Response.ObjectResult = (from row in result.Rows.Cast<DataRow>()
+                                            select new Point
+                                            {
+                                                Id=(long)row["Id"],
+                                                Description=(string)row["Description"],
+                                                Lat=(decimal)row["Lat"],
+                                                Lng=(decimal)row["Lng"],
+                                                IsStart=(bool)row["IsStart"],
+                                                isEnd=(bool)row["IsEnd"],
+                                                Order = (row["OrderRoute"] == DBNull.Value) ? 0 : (int)row["OrderRoute"]
+                                            }).FirstOrDefault();
+                        }
+                        else
+                            throw new Exception("No Se encontro la Ruta en la BD");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Error = true;
+                Response.Message = ex.Message;
+            }
+
+            return Response;
+
+        }
+
     }
 }

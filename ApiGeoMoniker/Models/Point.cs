@@ -11,5 +11,8 @@ namespace Models
         public string Description { get; set; }
         public decimal Lat { get; set; }
         public decimal Lng { get; set; }
+        public bool IsStart { get; set; }
+        public bool isEnd { get; set; }
+        public int Order { get; set; }
     }
 }

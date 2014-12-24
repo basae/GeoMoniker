@@ -23,9 +23,13 @@ namespace ApiGeoMoniker.Controllers
         }
 
         // GET api/point/5
-        public string Get(int id)
+        public Point Get(long IdRoute,long id)
         {
-            return "value";
+            ServiceResponse<Point> Response = new ServiceResponse<Point>();
+            Response = _pointRepository.SelectById(id);
+            if (Response.Error)
+                throw new HttpResponseException(Request.CreateErrorResponse(HttpStatusCode.BadRequest, Response.Message));
+            return (Point)Response.ObjectResult;
         }
 
         // POST api/point

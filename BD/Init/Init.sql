@@ -99,6 +99,9 @@ Description varchar(100),
 Lat decimal(10,6) not null,
 Lng decimal(10,6) not null,
 IdRute bigint,
+IsStart bit,
+IsEnd bit,
+OrderRoute int,
 foreign key(IdRute) references Route
 )
 go

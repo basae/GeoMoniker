@@ -35,6 +35,13 @@ namespace Business
                     throw new Exception("Longitud requerida");
                 if(IdRoute==null || IdRoute<=0)
                     throw new Exception("El Id de la ruta debe ser valido");
+                if (_point.IsStart == null || _point.isEnd == null)
+                    throw new Exception("Es Necesario Establecer el Inicio y Final de la Ruta");
+                if (_point.isEnd && _point.IsStart)
+                    throw new Exception("No puede ser un punto inicio y final al mismo Tiempo");
+                if (_point.Order == null)
+                    throw new Exception("Es Necesario Establecer el Orden de la Terminal");
+
                 Response=_pointRepository.Save(_point,IdRoute);
                 if (Response.Error)
                     throw new Exception(Response.Message);
@@ -66,6 +73,13 @@ namespace Business
                     throw new Exception("Longitud requerida");
                 if (IdRoute == null || IdRoute <= 0)
                     throw new Exception("El Id de la ruta debe ser valido");
+                if (_point.IsStart == null || _point.isEnd == null)
+                    throw new Exception("Es Necesario Establecer el Inicio y Final de la Ruta");
+                if (_point.isEnd && _point.IsStart)
+                    throw new Exception("No puede ser un punto inicio y final al mismo Tiempo");
+                if (_point.Order == null)
+                    throw new Exception("Es Necesario Establecer el Orden de la Terminal");
+
                 Response = _pointRepository.Save(_point, IdRoute);
                 if (Response.Error)
                     throw new Exception(Response.Message);
@@ -86,6 +100,25 @@ namespace Business
                 if (IdRoute == null || IdRoute <= 0)
                     throw new Exception("El Id de la ruta debe ser valido");
                 Response = _pointRepository.SelectByRoute(IdRoute);
+                if (Response.Error)
+                    throw new Exception(Response.Message);
+            }
+            catch (Exception ex)
+            {
+                Response.Error = true;
+                Response.Message = ex.Message;
+            }
+            return Response;
+        }
+
+        public ServiceResponse<Point> SelectById(long IdPoint)
+        {
+            ServiceResponse<Point> Response = new ServiceResponse<Point>();
+            try
+            {
+                if (IdPoint == null || IdPoint <= 0)
+                    throw new Exception("El Id de la Terminal debe ser valido");
+                Response = _pointRepository.SelectById(IdPoint);
                 if (Response.Error)
                     throw new Exception(Response.Message);
             }

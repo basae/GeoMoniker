@@ -17,6 +17,12 @@ namespace ApiGeoMoniker
             );
 
             config.Routes.MapHttpRoute(
+                name: "Oneness",
+                routeTemplate: "api/company/{idCompany}/User/{idUser}/oneness/{idOneness}",
+                defaults: new { idCompany = RouteParameter.Optional, controller = "Oneness", idUser = RouteParameter.Optional, idOneness= RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

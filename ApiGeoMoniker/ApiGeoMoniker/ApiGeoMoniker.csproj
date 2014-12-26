@@ -126,6 +126,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MapViewController.cs" />
+    <Compile Include="Controllers\OnenessController.cs" />
     <Compile Include="Controllers\PointController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
     <Compile Include="Controllers\UserController.cs" />

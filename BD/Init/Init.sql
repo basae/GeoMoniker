@@ -72,8 +72,12 @@ InsertDate datetime,
 UserInsert bigint,
 UpdateDate datetime,
 UserUpdate bigint,
+IdCompany bigint,
+Lat decimal(10,6),
+Lng decimal(10,6),
 foreign key(UserInsert) references Users,
-foreign key(UserUpdate) references Users
+foreign key(UserUpdate) references Users,
+foreign key(IdCompany) references Company
 )
 
 go

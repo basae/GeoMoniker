@@ -112,19 +112,36 @@ LngAreaMax decimal(10,6),
 LngAreaMin decimal(10,6),
 foreign key(IdRute) references Route
 )
+
+go
+
+create table Turns
+(
+Id bigint identity primary key,
+IdRoute bigint not null,
+IdPoint bigint not null,
+AwaitedArrival datetime not null,
+foreign key (IdRoute) references Route,
+foreign key (IdPoint) references Point
+)
+
+go
+
+create table TurnControl
+(
+Id bigint primary key identity,
+DateControl datetime,
+IdTurn bigint,
+IdOneness bigint,
+foreign key (IdTurn) references Turns,
+foreign key (IdOneness) references Oneness
+)
 go
 create table ArriveControl
 (
 Id bigint identity,
-IdRoute bigint not null,
-IdPoint bigint not null,
-IdOneness bigint not null,
-NoTurn int not null,
+IdTurn bigint not null,
 ActualArrival datetime,
-AwaitedArrival datetime,
-primary key (IdRoute,IdPoint,NoTurn,IdOneness),
-foreign key (IdRoute) references Route ,
-foreign key (IdPoint) references Point,
-foreign key (IdOneness) references Oneness
-
+primary key (IdTurn,ActualArrival),
+foreign key (IdTurn) references Turns
 )

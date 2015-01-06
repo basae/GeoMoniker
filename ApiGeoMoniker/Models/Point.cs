@@ -14,5 +14,9 @@ namespace Models
         public bool IsStart { get; set; }
         public bool isEnd { get; set; }
         public int Order { get; set; }
+        public decimal? LatAreaMax { get; set; }
+        public decimal? LatAreaMin { get; set; }
+        public decimal? LngAreaMax { get; set; }
+        public decimal? LngAreaMin { get; set; }
     }
 }

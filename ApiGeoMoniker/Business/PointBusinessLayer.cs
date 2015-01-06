@@ -42,6 +42,14 @@ namespace Business
                 if (_point.Order == null)
                     throw new Exception("Es Necesario Establecer el Orden de la Terminal");
 
+                if (!_point.LatAreaMax.HasValue)
+                    throw new Exception("Es necesario la Latitud maxima del area de la terminal");
+                if (!_point.LatAreaMin.HasValue)
+                    throw new Exception("Es necesario la Latitud minima del area de la terminal");
+                if (!_point.LngAreaMax.HasValue)
+                    throw new Exception("Es necesario la Longitud maxima del area de la terminal");
+                if (!_point.LngAreaMin.HasValue)
+                    throw new Exception("Es necesario la Longitud minima del area de la terminal");
                 Response=_pointRepository.Save(_point,IdRoute);
                 if (Response.Error)
                     throw new Exception(Response.Message);
@@ -79,6 +87,14 @@ namespace Business
                     throw new Exception("No puede ser un punto inicio y final al mismo Tiempo");
                 if (_point.Order == null)
                     throw new Exception("Es Necesario Establecer el Orden de la Terminal");
+                if (!_point.LatAreaMax.HasValue)
+                    throw new Exception("Es necesario la Latitud maxima del area de la terminal");
+                if (!_point.LatAreaMin.HasValue)
+                    throw new Exception("Es necesario la Latitud minima del area de la terminal");
+                if (!_point.LngAreaMax.HasValue)
+                    throw new Exception("Es necesario la Longitud maxima del area de la terminal");
+                if (!_point.LngAreaMin.HasValue)
+                    throw new Exception("Es necesario la Longitud minima del area de la terminal");
 
                 Response = _pointRepository.Save(_point, IdRoute);
                 if (Response.Error)

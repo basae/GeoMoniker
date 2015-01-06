@@ -16,7 +16,11 @@ ALTER PROCEDURE SP_IU_Point
 	@IdRute BIGINT,
 	@IsStart BIT,
 	@IsEnd BIT,
-	@OrderRoute INT
+	@OrderRoute INT,
+	@LatAreaMax decimal(10,6),
+	@LatAreaMin decimal(10,6),
+	@LngAreaMax decimal(10,6),
+	@LngAreaMin decimal(10,6)
 	
 AS
 BEGIN
@@ -29,9 +33,9 @@ BEGIN TRY
 			END
 
 			INSERT INTO dbo.Point
-			(Description,Lat,Lng,IdRute,IsStart,IsEnd,OrderRoute)
+			(Description,Lat,Lng,IdRute,IsStart,IsEnd,OrderRoute,LatAreaMax,LatAreaMin,LngAreaMax,LngAreaMin)
 			VALUES
-			(@Description,@Lat,@Lng,@IdRute,@IsStart,@IsEnd,@OrderRoute)		
+			(@Description,@Lat,@Lng,@IdRute,@IsStart,@IsEnd,@OrderRoute,@LatAreaMax,@LatAreaMin,@LngAreaMax,@LngAreaMin)		
 			SET @Id=(SELECT SCOPE_IDENTITY())
 		END
 	ELSE
@@ -42,7 +46,11 @@ BEGIN TRY
 			Lng=@Lng,
 			IsStart=@IsStart,
 			IsEnd=@IsEnd,
-			OrderRoute=@OrderRoute		
+			OrderRoute=@OrderRoute,
+			LatAreaMax=@LatAreaMax,
+			LatAreaMin=@LatAreaMin,
+			LngAreaMax=@LngAreaMax,
+			LngAreaMin=@LngAreaMin		
 			WHERE Id=@Id
 			SET @Id=1;
 		END

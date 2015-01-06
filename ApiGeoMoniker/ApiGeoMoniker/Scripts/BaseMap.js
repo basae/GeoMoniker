@@ -5,6 +5,8 @@ var Oneness = [];
 var LastlatLng
 var Areas = [];
 var editMode = false;
+var addMarkerIcon;
+var AreaNewMarker;
 $(function () {
     LastMarker = new google.maps.Marker();
     $("#AddTerminal").dialog(
@@ -20,7 +22,9 @@ $(function () {
                         $("#saveForm > input[type=text]").attr("value", "");
                         $("#saveForm > fieldset > input[type=checkbox]").attr("checked", false);
                         $("#saveForm > input[type=number]").attr("value", "");
-                        $(this).dialog("close");
+                        addMarkerIcon.setMap();
+                        AreaNewMarker.setMap();
+                         $(this).dialog("close");
                     }
                 },
             show:
@@ -39,12 +43,17 @@ $(function () {
             buttons:
                 {
                     "Aceptar": function () {
-                        var stringJson = JSON.stringify({ Id: LastMarker.attr("id"), Description: LastMarker.attr("title"), Lat: LastMarker[0].getPosition().lat(), Lng: LastMarker[0].getPosition().lng() })
+                        
+                        var positions;
                         $.each(Areas, function (index, obj) {
-                            if(obj.id==LastMarker.attr("id"))
+                            if (obj.id == LastMarker.attr("id")) {
                                 obj.setCenter(LastMarker[0].getPosition());
+                                positions = obj.getBounds();
+                                return
+                            }
                         });
 
+                        var stringJson = JSON.stringify({ Id: LastMarker.attr("id"), Description: LastMarker.attr("title"), Lat: LastMarker[0].getPosition().lat(), Lng: LastMarker[0].getPosition().lng() })
                         $.ajax({
                             url: "http://" + urlApi + "/api/route/1/point/" + LastMarker.attr("id"),
                             type: "GET",
@@ -52,7 +61,14 @@ $(function () {
 
                             contentType: "application/json",
                             success: function (response) {
-                                stringJson = JSON.stringify({ Id: response.Id, Description: response.Description, Lat: LastMarker[0].getPosition().lat(), Lng: LastMarker[0].getPosition().lng(), IsStart: response.IsStart, IsEnd: response.isEnd, Order: response.Order })
+                                var parameterbounds = positions.toUrlValue().split(",");
+                                stringJson = JSON.stringify({
+                                    Id: response.Id, Description: response.Description, Lat: LastMarker[0].getPosition().lat(), Lng: LastMarker[0].getPosition().lng(), IsStart: response.IsStart, IsEnd: response.isEnd, Order: response.Order,
+                                    LatAreaMax: parseFloat(parameterbounds[2]),
+                                    LatAreaMin: parseFloat(parameterbounds[0]),
+                                    LngAreaMax: parseFloat(parameterbounds[3]),
+                                    LngAreaMin: parseFloat(parameterbounds[1])
+                                })
                                 $.ajax({
                                     url: "http://" + urlApi + "/api/route/1/point",
                                     type: "PUT",
@@ -107,6 +123,8 @@ $(function () {
                 success: function (response) {
                     $("#AddTerminal").dialog("close");
                     $("#saveForm > input[type=text]").attr("value", "");
+                    addMarkerIcon.setMap();
+                    AreaNewMarker.setMap();
                     CleanMap(1);
                 },
                 error: function (a, b, c) {
@@ -200,6 +218,24 @@ var MapObj = function () {
             $("#AddTerminal").dialog("open");
             $("#Lat").val(position.latLng.lat());
             $("#Lng").val(position.latLng.lng());
+            addMarkerIcon = new google.maps.Marker(
+                {
+                    map: map,
+                    position: position.latLng
+                });
+            var TerminalAreaParams =
+            {
+                strokeColor: "white",
+                strokeOpacity: "black",
+                strokeWeight: 2,
+                fillColor: "black",
+                fillOpacity: 0.2,
+                map: map,
+                center: addMarkerIcon.getPosition(),
+                radius: 10
+            }
+
+            AreaNewMarker = new google.maps.Circle(TerminalAreaParams);
         });
     };
 
@@ -278,6 +314,7 @@ var MapObj = function () {
 
         google.maps.event.addListener(marker, "dragend", function (LatLng) {
             LastMarker = $(this);
+
             confirmUpdateUbication();
             
         });
@@ -399,6 +436,12 @@ function TransformObject(parameters) {
             "'" + value.value + "'" :
             value.value) + ",";
     });
+    var parameterbounds=AreaNewMarker.getBounds().toUrlValue().split(",");
+    result += "'LatAreaMax':" + parameterbounds[2] + ","
+    result += "'LatAreaMin':" + parameterbounds[0] + ","
+    result += "'LngAreaMax':" + parameterbounds[3] + ","
+    result += "'LngAreaMin':" + parameterbounds[1] + ","
+
     result = result.substring(0, result.length - 1) + "}";
     return result;
 };

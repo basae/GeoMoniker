@@ -31,6 +31,11 @@ namespace Data
                             cmd.Parameters.AddWithValue("@IsStart", _Point.IsStart);
                             cmd.Parameters.AddWithValue("@IsEnd", _Point.isEnd);
                             cmd.Parameters.AddWithValue("@OrderRoute", _Point.Order);
+                            cmd.Parameters.AddWithValue("@LatAreaMax", _Point.LatAreaMax);
+                            cmd.Parameters.AddWithValue("@LatAreaMin", _Point.LatAreaMin);
+                            cmd.Parameters.AddWithValue("@LngAreaMax", _Point.LngAreaMax);
+                            cmd.Parameters.AddWithValue("@LngAreaMin", _Point.LngAreaMin);
+                            
                             cmd.ExecuteNonQuery();
 
                             if (Convert.ToInt64(cmd.Parameters["@Id"].Value) != _Point.Id)
@@ -77,7 +82,11 @@ namespace Data
                                                 Lng=(decimal)row["Lng"],
                                                 IsStart=(bool)row["IsStart"],
                                                 isEnd=(bool)row["IsEnd"],
-                                                Order = (row["OrderRoute"] == DBNull.Value) ? 0 : (int)row["OrderRoute"]
+                                                Order = (row["OrderRoute"] == DBNull.Value) ? 0 : (int)row["OrderRoute"],
+                                                LatAreaMax=(row["LatAreaMax"]==DBNull.Value)?(decimal?)null:(decimal)row["LatAreaMax"],
+                                                LatAreaMin = (row["LatAreaMin"] == DBNull.Value) ? (decimal?)null : (decimal)row["LatAreaMin"],
+                                                LngAreaMin = (row["LngAreaMin"] == DBNull.Value) ? (decimal?)null : (decimal)row["LngAreaMin"],
+                                                LngAreaMax = (row["LngAreaMax"] == DBNull.Value) ? (decimal?)null : (decimal)row["LngAreaMax"]
                                             }).OrderBy(x => x.Order);
                         }
                         else
@@ -121,7 +130,11 @@ namespace Data
                                                 Lng=(decimal)row["Lng"],
                                                 IsStart=(bool)row["IsStart"],
                                                 isEnd=(bool)row["IsEnd"],
-                                                Order = (row["OrderRoute"] == DBNull.Value) ? 0 : (int)row["OrderRoute"]
+                                                Order = (row["OrderRoute"] == DBNull.Value) ? 0 : (int)row["OrderRoute"],
+                                                LatAreaMax = (row["LatAreaMax"] == DBNull.Value) ? (decimal?)null : (decimal)row["LatAreaMax"],
+                                                LatAreaMin = (row["LatAreaMin"] == DBNull.Value) ? (decimal?)null : (decimal)row["LatAreaMin"],
+                                                LngAreaMin = (row["LngAreaMin"] == DBNull.Value) ? (decimal?)null : (decimal)row["LngAreaMin"],
+                                                LngAreaMax = (row["LngAreaMax"] == DBNull.Value) ? (decimal?)null : (decimal)row["LngAreaMax"]
                                             }).FirstOrDefault();
                         }
                         else

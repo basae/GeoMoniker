@@ -106,6 +106,10 @@ IdRute bigint,
 IsStart bit,
 IsEnd bit,
 OrderRoute int,
+LatAreaMax decimal(10,6),
+LatAreaMin decimal(10,6),
+LngAreaMax decimal(10,6),
+LngAreaMin decimal(10,6),
 foreign key(IdRute) references Route
 )
 go

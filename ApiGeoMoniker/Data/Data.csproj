@@ -47,6 +47,8 @@
     <Compile Include="PointsRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteRepository.cs" />
+    <Compile Include="TurnControlRepository.cs" />
+    <Compile Include="TurnRepository.cs" />
     <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>

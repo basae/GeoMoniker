@@ -23,6 +23,18 @@ namespace ApiGeoMoniker
             );
 
             config.Routes.MapHttpRoute(
+                name: "Turn",
+                routeTemplate: "api/route/{IdRoute}/turn/{id}",
+                defaults: new { IdRoute = RouteParameter.Optional, controller = "Turn", id = RouteParameter.Optional }
+            );
+
+            config.Routes.MapHttpRoute(
+                name: "TurnControl",
+                routeTemplate: "api/turncontrol/oneness/{OnenessId}/",
+                defaults: new { OnenessId = RouteParameter.Optional, controller = "TurnControl" }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

@@ -44,6 +44,8 @@
     <Compile Include="PointBusinessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteBusinessLayer.cs" />
+    <Compile Include="TurnBusinessLayer.cs" />
+    <Compile Include="TurnControlBusinessLayer.cs" />
     <Compile Include="UserBusinessLayer.cs" />
   </ItemGroup>
   <ItemGroup>

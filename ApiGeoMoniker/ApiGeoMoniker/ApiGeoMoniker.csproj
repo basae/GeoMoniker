@@ -129,6 +129,8 @@
     <Compile Include="Controllers\OnenessController.cs" />
     <Compile Include="Controllers\PointController.cs" />
     <Compile Include="Controllers\RouteController.cs" />
+    <Compile Include="Controllers\TurnControlController.cs" />
+    <Compile Include="Controllers\TurnController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">

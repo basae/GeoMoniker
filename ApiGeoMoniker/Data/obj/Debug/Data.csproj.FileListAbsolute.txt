@@ -12,3 +12,10 @@ C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\bin\Debug\Models
 C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
 C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\obj\Debug\Data.dll
 C:\Users\ebastar\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\obj\Debug\Data.pdb
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\bin\Debug\Data.dll
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\bin\Debug\Data.pdb
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\bin\Debug\Models.dll
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\bin\Debug\Models.pdb
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\obj\Debug\Data.dll
+C:\Users\Edrei\Documents\GitHub\GeoMoniker\ApiGeoMoniker\Data\obj\Debug\Data.pdb

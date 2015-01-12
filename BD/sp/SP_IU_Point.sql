@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_IU_Point
+CREATE PROCEDURE SP_IU_Point
 	-- Add the parameters for the stored procedure here
 	@Id BIGINT = NULL OUTPUT,
 	@Description VARCHAR(100),

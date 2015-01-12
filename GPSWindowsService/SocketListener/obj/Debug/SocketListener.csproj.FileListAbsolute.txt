@@ -1,0 +1,5 @@
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\SocketListener\bin\Debug\SocketListener.dll
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\SocketListener\bin\Debug\SocketListener.pdb
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\SocketListener\obj\Debug\SocketListener.csprojResolveAssemblyReference.cache
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\SocketListener\obj\Debug\SocketListener.dll
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\SocketListener\obj\Debug\SocketListener.pdb

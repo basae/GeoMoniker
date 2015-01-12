@@ -14,10 +14,22 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>11/05/2014 22:22:25</publishTime>
     </File>
     <File Include="bin/ApiGeoMoniker.dll">
-      <publishTime>11/11/2014 23:46:55</publishTime>
+      <publishTime>01/11/2015 19:28:46</publishTime>
     </File>
     <File Include="bin/ApiGeoMoniker.pdb">
-      <publishTime>11/11/2014 23:46:55</publishTime>
+      <publishTime>01/11/2015 19:28:46</publishTime>
+    </File>
+    <File Include="bin/Business.dll">
+      <publishTime>01/11/2015 19:28:44</publishTime>
+    </File>
+    <File Include="bin/Business.pdb">
+      <publishTime>01/11/2015 19:28:44</publishTime>
+    </File>
+    <File Include="bin/Data.dll">
+      <publishTime>01/11/2015 19:28:42</publishTime>
+    </File>
+    <File Include="bin/Data.pdb">
+      <publishTime>01/11/2015 19:28:42</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>11/05/2014 22:22:06</publishTime>
@@ -52,6 +64,12 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>11/05/2014 22:22:21</publishTime>
     </File>
+    <File Include="bin/Models.dll">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="bin/Models.pdb">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>11/05/2014 22:22:21</publishTime>
     </File>
@@ -82,8 +100,44 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="bin/WebGrease.dll">
       <publishTime>11/05/2014 22:22:25</publishTime>
     </File>
+    <File Include="Content/Bootstrap.FontAwsome.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/Bootstrap.FontAwsome.min.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/map.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
     <File Include="Content/Site.css">
       <publishTime>11/05/2014 22:21:43</publishTime>
+    </File>
+    <File Include="Content/themes/base/accordion.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/all.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/autocomplete.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/base.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/button.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/core.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/datepicker.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/dialog.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/draggable.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
     </File>
     <File Include="Content/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>11/05/2014 22:22:20</publishTime>
@@ -169,6 +223,9 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Content/themes/base/jquery.ui.theme.css">
       <publishTime>11/05/2014 22:22:19</publishTime>
     </File>
+    <File Include="Content/themes/base/menu.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
     <File Include="Content/themes/base/minified/images/ui-bg_flat_0_aaaaaa_40x100.png">
       <publishTime>11/05/2014 22:22:19</publishTime>
     </File>
@@ -247,8 +304,116 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Content/themes/base/minified/jquery.ui.theme.min.css">
       <publishTime>11/05/2014 22:22:19</publishTime>
     </File>
+    <File Include="Content/themes/base/progressbar.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/resizable.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectable.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/selectmenu.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/slider.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/sortable.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/spinner.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/tabs.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/theme.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/base/tooltip.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_flat_30_cccccc_40x100.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_flat_50_5c5c5c_40x100.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_glass_20_555555_1x400.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_glass_40_0078a3_1x400.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_glass_40_ffc73d_1x400.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_gloss-wave_25_333333_500x100.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_highlight-soft_80_eeeeee_1x100.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_inset-soft_25_000000_1x100.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-bg_inset-soft_30_f58400_1x100.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-icons_222222_256x240.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-icons_4b8e0b_256x240.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-icons_a83300_256x240.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-icons_cccccc_256x240.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/images/ui-icons_ffffff_256x240.png">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/jquery-ui-1.10.4.custom.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/jquery-ui.ui-darkness.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Content/themes/ui-darkness/jquery-ui.ui-darkness.min.css">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>11/05/2014 22:21:43</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.eot">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.svg">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.woff">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/FontAwesome.otf">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>01/11/2015 16:50:33</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>11/05/2014 22:21:43</publishTime>
@@ -293,7 +458,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>11/05/2014 22:21:43</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>11/05/2014 22:22:30</publishTime>
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="Scripts/BaseMap.js">
+      <publishTime>01/11/2015 19:50:59</publishTime>
     </File>
     <File Include="Scripts/jquery-1.7.1.js">
       <publishTime>11/05/2014 22:22:15</publishTime>
@@ -301,11 +469,23 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Scripts/jquery-1.7.1.min.js">
       <publishTime>11/05/2014 22:22:15</publishTime>
     </File>
+    <File Include="Scripts/jquery-ui-1.11.2.js">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.11.2.min.js">
+      <publishTime>01/11/2015 16:50:33</publishTime>
+    </File>
     <File Include="Scripts/jquery-ui-1.8.20.js">
       <publishTime>11/05/2014 22:22:19</publishTime>
     </File>
     <File Include="Scripts/jquery-ui-1.8.20.min.js">
       <publishTime>11/05/2014 22:22:19</publishTime>
+    </File>
+    <File Include="Scripts/jQuery.Bootstrap.js">
+      <publishTime>01/11/2015 16:50:32</publishTime>
+    </File>
+    <File Include="Scripts/jQuery.Bootstrap.min.js">
+      <publishTime>01/11/2015 16:50:32</publishTime>
     </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.js">
       <publishTime>11/05/2014 22:22:20</publishTime>
@@ -335,16 +515,19 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>11/05/2014 22:22:21</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>11/05/2014 22:22:18</publishTime>
+      <publishTime>01/11/2015 16:50:32</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>11/05/2014 22:21:43</publishTime>
+    </File>
+    <File Include="Views/MapView/Index.cshtml">
+      <publishTime>01/11/2015 16:50:33</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>11/05/2014 22:21:43</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>11/05/2014 22:21:43</publishTime>
+      <publishTime>01/11/2015 16:50:33</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>11/05/2014 22:21:43</publishTime>
@@ -353,7 +536,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>11/05/2014 22:21:43</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/11/2014 23:53:27</publishTime>
+      <publishTime>01/11/2015 19:55:41</publishTime>
     </File>
   </ItemGroup>
 </Project>

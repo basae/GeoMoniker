@@ -143,5 +143,5 @@ Id bigint identity,
 IdTurn bigint not null,
 ActualArrival datetime,
 primary key (IdTurn,ActualArrival),
-foreign key (IdTurn) references Turns
+foreign key (IdTurn) references Turncontrol
 )

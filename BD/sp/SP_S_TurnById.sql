@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_TurnById
+CREATE PROCEDURE SP_S_TurnById
 	-- Add the parameters for the stored procedure here
 	@Id BIGINT
 	

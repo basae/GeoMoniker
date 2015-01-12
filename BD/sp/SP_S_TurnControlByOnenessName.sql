@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_TurnControlByOnenessName
+CREATE PROCEDURE SP_S_TurnControlByOnenessName
 	-- Add the parameters for the stored procedure here
 	@OnenessName varchar(30),
 	@DateControl DATETIME
@@ -15,7 +15,8 @@ ALTER PROCEDURE SP_S_TurnControlByOnenessName
 AS
 BEGIN
 BEGIN TRY
-	DECLARE @IDONENESS BIGINT = NULL
+	DECLARE @IDONENESS BIGINT;
+	 SET @IDONENESS= NULL
 	
 	SET @IDONENESS=(SELECT ID FROM ONENESS WHERE NAME=@OnenessName)
 	

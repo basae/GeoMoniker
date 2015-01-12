@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script type="text/javascript">
+        var urlApi='@Request.Url.Authority'
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLJo0DLMNjD8pAieAlHOOlugYaZo-7o9M&sensor=false"></script>
+    
+    <link rel="stylesheet" href="~/Content/map.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/themes/ui-darkness/jquery-ui-1.10.4.custom.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Bootstrap.FontAwsome.css" type="text/css" />
+    
+</head>
+<body>
+    <div id="map">
+        
+    </div>
+
+    <div id="AddTerminal">
+        <form id="saveForm">
+            <input type="text" name="Id" id="Id" value="0" hidden/>
+            <label>Nombre:</label>
+            <input type="text" name="Description" id="Description" placeholder="Nombre de la Terminal" required />
+            <label>Latitud:</label>
+            <input type="text" name="Lat" id="Lat" required />
+            <label>Longitud:</label>
+            <input type="text" name="Lng" id="Lng" required  />
+            <label>Orden de Terminal</label>
+            <input type="number" name="Order" id="Order" required  />
+            <fieldset>
+                <label>Es Inicio de Ruta</label>
+            <input type="checkbox" name="IsStart" id="IsStart" required />
+                <label>Es Final de Ruta</label>
+            <input type="checkbox" name="IsEnd" id="IsEnd" required  />
+            </fieldset>
+        </form>
+    </div>
+
+    <div id="confirmupdate"><p></p></div>
+</body>
+</html>

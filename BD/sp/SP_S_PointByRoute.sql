@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_PointByRoute
+CREATE PROCEDURE SP_S_PointByRoute
 	-- Add the parameters for the stored procedure here
 	@IdRute BIGINT
 	

@@ -1,0 +1,6 @@
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\GPSWindowsService\bin\Debug\GPSWindowsService.exe.config
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\GPSWindowsService\bin\Debug\GPSWindowsService.exe
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\GPSWindowsService\bin\Debug\GPSWindowsService.pdb
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\GPSWindowsService\obj\Debug\GPSWindowsService.csprojResolveAssemblyReference.cache
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\GPSWindowsService\obj\Debug\GPSWindowsService.exe
+c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\GPSWindowsService\obj\Debug\GPSWindowsService.pdb

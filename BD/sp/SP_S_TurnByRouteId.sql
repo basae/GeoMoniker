@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_TurnByRouteId
+CREATE PROCEDURE SP_S_TurnByRouteId
 	-- Add the parameters for the stored procedure here
 	@IdRoute BIGINT
 	

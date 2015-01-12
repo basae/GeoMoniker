@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_IU_Turn
+CREATE PROCEDURE SP_IU_Turn
 	-- Add the parameters for the stored procedure here
 	@Id BIGINT = NULL OUTPUT,
 	@IdRoute BIGINT,

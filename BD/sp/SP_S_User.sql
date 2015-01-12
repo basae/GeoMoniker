@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-ALTER PROCEDURE SP_S_User
+CREATE PROCEDURE SP_S_User
 	-- Add the parameters for the stored procedure here
 AS
 BEGIN

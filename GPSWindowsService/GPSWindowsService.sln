@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPSWindowsService", "GPSWindowsService\GPSWindowsService.csproj", "{F955762D-FC06-404D-920B-22FB7682D170}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketListener", "SocketListener\SocketListener.csproj", "{FE5C3AB1-B060-4552-A6CD-2FD0FEF920F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSocket", "TestSocket\TestSocket.csproj", "{5FD50D96-228E-42E7-9F4E-2B5B693B65BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F955762D-FC06-404D-920B-22FB7682D170}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F955762D-FC06-404D-920B-22FB7682D170}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F955762D-FC06-404D-920B-22FB7682D170}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F955762D-FC06-404D-920B-22FB7682D170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE5C3AB1-B060-4552-A6CD-2FD0FEF920F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE5C3AB1-B060-4552-A6CD-2FD0FEF920F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE5C3AB1-B060-4552-A6CD-2FD0FEF920F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE5C3AB1-B060-4552-A6CD-2FD0FEF920F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FD50D96-228E-42E7-9F4E-2B5B693B65BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD50D96-228E-42E7-9F4E-2B5B693B65BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD50D96-228E-42E7-9F4E-2B5B693B65BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD50D96-228E-42E7-9F4E-2B5B693B65BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

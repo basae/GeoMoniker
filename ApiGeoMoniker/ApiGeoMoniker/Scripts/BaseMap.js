@@ -169,6 +169,18 @@ $(function () {
     zoom = (zoom != null) ? parseInt(zoom) : 17;
     if (qs.lat != null && qs.lng != null)
         MapControl.Init(qs.lat, qs.lng, zoom);
+    else {
+        if (navigator.geolocation) {
+            var success = function (position) {
+                var latitud = position.coords.latitude,
+                    longitud = position.coords.longitude;
+                MapControl.Init(latitud, longitud, 15);
+            }
+            navigator.geolocation.getCurrentPosition(success, function (msg) {
+                console.error(msg);
+            });
+        }
+    }
 
     if (qs.edit != null && qs.edit == "true")
         editMode = true;
@@ -361,13 +373,14 @@ var MapObj = function () {
         var arrayPoints = [];
         var routes = [];
         var NumWayPoints = parseInt((Terminals.length-2) / 4);
-
-        for (i = 1; i < Terminals.length - 1; i=i+NumWayPoints) {
-            arrayPoints.push(
-                {
-                    location: Terminals[i].getPosition(),
-                    stopover:false
-                });
+        if (NumWayPoints > 0) {
+            for (i = 1; i < Terminals.length - 1; i = i + NumWayPoints) {
+                arrayPoints.push(
+                    {
+                        location: Terminals[i].getPosition(),
+                        stopover: false
+                    });
+            }
         }
         
             var request =

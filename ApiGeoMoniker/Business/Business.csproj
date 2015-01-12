@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArrivedControlBusinessLayer.cs" />
     <Compile Include="CompanyBusinessLayer.cs" />
     <Compile Include="OnenessBusinessLayer.cs" />
     <Compile Include="PointBusinessLayer.cs" />

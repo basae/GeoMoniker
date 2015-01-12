@@ -75,6 +75,7 @@ UserUpdate bigint,
 IdCompany bigint,
 Lat decimal(10,6),
 Lng decimal(10,6),
+Imei bigint,
 foreign key(UserInsert) references Users,
 foreign key(UserUpdate) references Users,
 foreign key(IdCompany) references Company
@@ -121,6 +122,7 @@ Id bigint identity primary key,
 IdRoute bigint not null,
 IdPoint bigint not null,
 AwaitedArrival datetime not null,
+NumberTurn int not null,
 foreign key (IdRoute) references Route,
 foreign key (IdPoint) references Point
 )
@@ -133,6 +135,7 @@ Id bigint primary key identity,
 DateControl datetime,
 IdTurn bigint,
 IdOneness bigint,
+Arrived bit,
 foreign key (IdTurn) references Turns,
 foreign key (IdOneness) references Oneness
 )

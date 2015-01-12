@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Address.cs" />
+    <Compile Include="ArrivedControl.cs" />
     <Compile Include="Company.cs" />
     <Compile Include="Oneness.cs" />
     <Compile Include="Point.cs" />

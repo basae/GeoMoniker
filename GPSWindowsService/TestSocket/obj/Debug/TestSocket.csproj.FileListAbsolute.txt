@@ -4,3 +4,6 @@ c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\TestSocke
 c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\TestSocket\obj\Debug\TestSocket.csprojResolveAssemblyReference.cache
 c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\TestSocket\obj\Debug\TestSocket.exe
 c:\users\edrei\documents\visual studio 2012\Projects\GPSWindowsService\TestSocket\obj\Debug\TestSocket.pdb
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\GPSWindowsService\TestSocket\bin\Debug\TestSocket.exe.config
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\GPSWindowsService\TestSocket\obj\Debug\TestSocket.exe
+C:\Users\ebastar\Documents\GitHub\GeoMoniker\GPSWindowsService\TestSocket\obj\Debug\TestSocket.pdb

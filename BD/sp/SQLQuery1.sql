@@ -23,3 +23,8 @@
 select *from turncontrol
 select *from turns
 select *from oneness
+
+insert into turncontrol(datecontrol,idturn,idoneness,arrived)
+
+
+

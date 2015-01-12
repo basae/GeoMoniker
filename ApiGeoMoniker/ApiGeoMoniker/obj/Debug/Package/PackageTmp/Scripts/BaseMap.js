@@ -373,13 +373,14 @@ var MapObj = function () {
         var arrayPoints = [];
         var routes = [];
         var NumWayPoints = parseInt((Terminals.length-2) / 4);
-
-        for (i = 1; i < Terminals.length - 1; i=i+NumWayPoints) {
-            arrayPoints.push(
-                {
-                    location: Terminals[i].getPosition(),
-                    stopover:false
-                });
+        if (NumWayPoints > 0) {
+            for (i = 1; i < Terminals.length - 1; i = i + NumWayPoints) {
+                arrayPoints.push(
+                    {
+                        location: Terminals[i].getPosition(),
+                        stopover: false
+                    });
+            }
         }
         
             var request =

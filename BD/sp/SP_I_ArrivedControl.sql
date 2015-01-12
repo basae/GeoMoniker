@@ -7,7 +7,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE SP_I_ArrivedControl
+alter PROCEDURE SP_I_ArrivedControl
 	-- Add the parameters for the stored procedure here
 	@Lat decimal(10,6),
 	@Lng decimal(10,6),
@@ -27,10 +27,10 @@ BEGIN TRY
 		if(@pointset is not null)
 		begin
 			declare @idturnset bigint
-			set @idturnset=(select tc.idturn from turncontrol tc inner join turns t 
+			set @idturnset=(select tc.id from turncontrol tc inner join turns t 
 			on t.id=tc.idturn
 			where 
-				(tc.idoneness=1) 
+				(tc.idoneness=@Unit) 
 				and 
 				(convert(char,tc.datecontrol,103)=convert(char,getdate(),103))
 				and 
@@ -40,7 +40,7 @@ BEGIN TRY
 				)
 			update turncontrol set arrived=1 where id=@idturnset
 			if(
-				(select convert(date,datecontrol) from turncontrol where id=@idturnset)=convert(date,getdate())
+				(select convert(char,datecontrol,103) from turncontrol where id=@idturnset)=convert(char,getdate(),103)
 				)
 				begin 
 				insert into arrivecontrol(idturn,actualarrival)

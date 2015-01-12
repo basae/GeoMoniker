@@ -7,20 +7,20 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-alter PROCEDURE SP_S_ArrivedControlByDate
+create PROCEDURE SP_S_ArrivedControlByDate
 	-- Add the parameters for the stored procedure here
 	@DateControl datetime
 	
 AS
 BEGIN
 BEGIN TRY
-select
+SELECT 
 	ac.id, 
 	onn.name as Unit,
 	p.description as Terminal,
-	convert(time,ts.awaitedarrival) as awaitedarrival,
-	convert(time,ac.actualarrival) as actualarrival,
-	datediff(minute,convert(time,ts.awaitedarrival),convert(time,ac.actualarrival)) as difminutes
+	CONVERT(VARCHAR,ts.awaitedarrival,108) as awaitedarrival,
+	CONVERT(VARCHAR,ac.actualarrival,108) as actualarrival,
+	datediff(minute,convert(VARCHAR,ts.awaitedarrival,108),convert(VARCHAR,ac.actualarrival,108)) as difminutes
 from arrivecontrol ac 
 inner join 	turncontrol tc 
 	on tc.id=ac.idturn 
@@ -30,7 +30,7 @@ inner join point p
 	on p.id=ts.idpoint
 inner join oneness onn
 	on onn.id=tc.idoneness
-where convert(date,tc.datecontrol)=convert(date,@DateControl)
+where convert(CHAR,tc.datecontrol,103)=convert(CHAR,@DateControl,103)
 END TRY
 BEGIN CATCH
 IF @@TRANCOUNT > 0 ROLLBACK TRAN

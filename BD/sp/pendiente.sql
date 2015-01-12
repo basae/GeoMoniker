@@ -12,7 +12,7 @@ and
 if(@pointset is not null)
 begin
 declare @idturnset bigint
-set @idturnset=(select tc.idturn from turncontrol tc inner join turns t 
+set @idturnset=(select tc.id from turncontrol tc inner join turns t 
 on t.id=tc.idturn
 where 
 	(tc.idoneness=1) 
@@ -21,7 +21,7 @@ where
 	and 
 	((tc.arrived=0) or (tc.arrived is null))
 	and
-	t.idpoint=@pointset
+	t.idpoint=1
 	)
 update turncontrol set arrived=1 where id=@idturnset
 if(
